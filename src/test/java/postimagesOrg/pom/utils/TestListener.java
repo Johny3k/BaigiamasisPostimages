@@ -19,18 +19,13 @@ public class TestListener implements ITestListener {
         takeScreenshot("failure");
     }
 
-    @Override
-    public void onTestSuccess(ITestResult result) {
-        takeScreenshot("success");
-    }
-
 
 
     private void takeScreenshot(String status) {
 
         try {
-            TakesScreenshot takesScreenshot = (TakesScreenshot) Driver.getDriver(); //naudojam del to nes screenshotinam
-            File screenshotRaw = takesScreenshot.getScreenshotAs(OutputType.FILE); //tik chrome langa
+            TakesScreenshot takesScreenshot = (TakesScreenshot) Driver.getDriver();
+            File screenshotRaw = takesScreenshot.getScreenshotAs(OutputType.FILE);
 
             LocalDateTime localDateTime = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH_mm_ss_SSS");
