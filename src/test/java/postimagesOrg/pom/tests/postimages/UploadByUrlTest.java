@@ -3,13 +3,13 @@ package postimagesOrg.pom.tests.postimages;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import postimagesOrg.pom.pages.Common;
 import postimagesOrg.pom.pages.postimages.HomePage;
 import postimagesOrg.pom.pages.postimages.LoginPage;
 import postimagesOrg.pom.pages.postimages.MyImagesPage;
+import postimagesOrg.pom.pages.postimages.UploadByUrlPage;
 import postimagesOrg.pom.tests.TestBase;
 
-public class UploadImageTest extends TestBase {
+public class UploadByUrlTest extends TestBase {
 
     @BeforeMethod
     @Override
@@ -25,21 +25,19 @@ public class UploadImageTest extends TestBase {
     }
 
     @Test
-    public void testImageUpload(){
-        String expectedResult = "Image";
+    public void uploadByUrlTest(){
+        String expectedResult = "what-makes-java-still-popular-among-developers";
         String actualResult;
 
-        HomePage.uploadToTestImages();
-        Common.sleep(2000);
+        HomePage.clickUploadByLinkHomePage();
+        UploadByUrlPage.enterLinkToUpload();
+        UploadByUrlPage.clickUpload();
+
         HomePage.clickMyImagesHomePage();
         MyImagesPage.clickDefault();
 
-        actualResult = MyImagesPage.checkIfImageExists();
+        actualResult = MyImagesPage.checkIfOtherImageExists();
 
-        boolean doesTheImageExist = actualResult.contains(expectedResult);
-
-        Assert.assertTrue(doesTheImageExist, new String("The image " + expectedResult +
-                " was not uploaded"));
-   }
-
+        Assert.assertTrue(actualResult.contains(expectedResult));
+    }
 }

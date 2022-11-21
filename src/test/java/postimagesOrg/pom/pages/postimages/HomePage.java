@@ -45,4 +45,10 @@ public class HomePage {
                 Locators.Postimages.Home.uploadByUrlButton
         );
     }
+
+    public static void clickLogOut() {
+        Common.clickElement(
+                Locators.Postimages.Home.logOutButton
+        );
+    }
 }

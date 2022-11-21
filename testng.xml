@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BaigiamasisPostimages" >
+    <test name="Demo test">
+        <classes>
+            <class name="pom.tests.postimages.LogInTest"/>
+            <class name="pom.tests.postimages.UploadImageTest"/>
+            <class name="pom.tests.postimages.UploadByUrlTest"/>
+            <class name="pom.tests.postimages.DeleteImageTest"/>
+            <class name="pom.tests.postimages.LogOutTest"/>
+            <!--            <class name="pom.tests.seleniumEasy.RadioButtonDemoTest">-->
+            <!--                <methods>-->
+            <!--                    <include name="testRadioButton"/>-->
+            <!--                </methods>-->
+            <!--            </class>-->
+        </classes>
+    </test>
+</suite>

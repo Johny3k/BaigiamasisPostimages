@@ -7,7 +7,7 @@ import postimagesOrg.pom.pages.postimages.HomePage;
 import postimagesOrg.pom.pages.postimages.LoginPage;
 import postimagesOrg.pom.tests.TestBase;
 
-public class LoginTest extends TestBase {
+public class LogInTest extends TestBase {
 
     @BeforeMethod
     @Override

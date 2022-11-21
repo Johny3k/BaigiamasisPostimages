@@ -5,10 +5,16 @@ import postimagesOrg.pom.pages.Locators;
 
 public class MyImagesPage {
 
-    public static String checkIfImageExists(String attributeName) {
-        return Common.getTextFromAttribute(
-                Locators.Postimages.MyImages.imageLocation,
-                attributeName
+    public static String checkIfImageExists() {
+        return Common.getTextFromElement(
+                Locators.Postimages.MyImages.imageLocation
+        );
+
+    }
+
+    public static String checkIfOtherImageExists() {
+        return Common.getTextFromElement(
+                Locators.Postimages.MyImages.otherImageLocation
         );
     }
 
@@ -19,7 +25,34 @@ public class MyImagesPage {
         Common.clickElement(
                 Locators.Postimages.MyImages.deleteButtonLocation
         );
-        //Common.sleep(1000);
+        Common.sleep(3000);
         Common.clickOkOnAlertBox();
+    }
+
+    public static void deleteOtherSelectedImage() {
+        Common.clickElement(
+                Locators.Postimages.MyImages.otherImageLocation
+        );
+        Common.clickElement(
+                Locators.Postimages.MyImages.deleteButtonLocation
+        );
+        Common.sleep(3000);
+        Common.clickOkOnAlertBox();
+    }
+
+    public static void clickDefault() {
+        Common.clickElement(
+                Locators.Postimages.MyImages.buttonDefault
+        );
+    }
+
+    public static String checkIfEmpty() {
+        return Common.getTextFromAttribute(
+                Locators.Postimages.MyImages.isItEmptyLocation, "style"
+        );
+    }
+
+    public static void sleep() {
+        Common.sleep(2000);
     }
 }

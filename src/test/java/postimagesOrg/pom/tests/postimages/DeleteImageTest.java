@@ -23,31 +23,40 @@ public class DeleteImageTest extends TestBase {
         LoginPage.enterPassword(password);
         LoginPage.clickLogIn();
         HomePage.clickMyImagesHomePage();
+        MyImagesPage.clickDefault();
     }
 
     @Test(priority = 1)
     public void doesTheImageExist(){
         String expectedResult = "Image";
+        String expectedResult2 = "what-makes-java-still-popular-among-developers";
         String actualResult;
-        actualResult = MyImagesPage.checkIfImageExists("style");
+        String actualResult2;
+
+        actualResult = MyImagesPage.checkIfImageExists();
+        actualResult2 = MyImagesPage.checkIfOtherImageExists();
         boolean doesTheImageExist = actualResult.contains(expectedResult);
+        boolean doesTheOtherImageExist = actualResult2.contains(expectedResult2);
 
-        Assert.assertTrue(doesTheImageExist, new String("The image " + expectedResult + " does not exist"));
-       // MyImagesPage.deleteSelectedImage();
+        Assert.assertTrue(doesTheImageExist, new String("The image Image.jpg" +
+                expectedResult + " does not exist"));
 
-//        Assert.assertTrue(
-//                actualResult.contains(expectedResult),
-//                String.format("Actual: %s, Expected: %s", actualResult, expectedResult)
-//        );
-
+        Assert.assertTrue(doesTheOtherImageExist, new String("The image " +
+                "what-makes-java-still-popular-among-developers.jpg" + expectedResult2 + " does not exist"));
     }
 
     @Test(priority = 2)
     public void deleteImageTest(){
-        String expectedResult = "Image";
+        String expectedResult = "empty";
         String actualResult;
 
         MyImagesPage.deleteSelectedImage();
-    }
+        MyImagesPage.deleteOtherSelectedImage();
 
+        MyImagesPage.sleep();
+        HomePage.clickMyImagesHomePage();
+        actualResult = MyImagesPage.checkIfEmpty();
+
+        Assert.assertTrue(actualResult.contains(expectedResult));
+    }
 }
