@@ -3,7 +3,7 @@ package postimagesOrg.pom.pages.postimages;
 import postimagesOrg.pom.pages.Common;
 import postimagesOrg.pom.pages.Locators;
 
-public class HomePage {
+public class UploadImagePage {
 
     public static void openUrl(String url){
         Common.openUrl(url);
@@ -14,7 +14,6 @@ public class HomePage {
                 Locators.Postimages.Home.loginButton
         );
     }
-
 
     public static String readUserEmailMessage() {
         return Common.getTextFromElement(
@@ -35,11 +34,6 @@ public class HomePage {
         );
     }
 
-    public static void addAttachment(){
-        Common.uploadImage(Locators.Postimages.Home.chooseImageButton);
-    }
-
-
     public static void clickUploadByLinkHomePage() {
         Common.clickElement(
                 Locators.Postimages.Home.uploadByUrlButton
@@ -50,5 +44,9 @@ public class HomePage {
         Common.clickElement(
                 Locators.Postimages.Home.logOutButton
         );
+    }
+
+    public static void waitABit() {
+        Common.waitABitPlease();
     }
 }

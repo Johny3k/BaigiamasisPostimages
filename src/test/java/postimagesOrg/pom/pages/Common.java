@@ -3,10 +3,9 @@ package postimagesOrg.pom.pages;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import postimagesOrg.pom.utils.Driver;
 
-import java.lang.constant.Constable;
+import java.time.Duration;
 
 public class Common {
 
@@ -32,38 +31,16 @@ public class Common {
         return Driver.getDriver().findElement(locator);
     }
 
-    private static String getFile (String directory){
-        return System.getProperty(directory);
-    }
-
-
     public static void clickElement(By locator) {
         getElement(locator).click();
     }
 
-    public static void sendKeysToElement(By locator, String something){
-        getElement(locator).sendKeys(something);
+    public static void sendKeysToElement(By locator, String value){
+        getElement(locator).sendKeys(value);
     }
 
     public static String getTextFromElement(By locator) {
         return getElement(locator).getText();
-    }
-
-    public static void uploadFileToElement(By locator, String path){
-        Driver.getDriver().findElement(locator).sendKeys(path);
-    }
-
-    public static void sendKeysToElementByAction(By locator) {
-        WebElement element = getElement(locator);
-        Actions actions = new Actions(Driver.getDriver());
-        actions.moveToElement(element);
-        actions.click();
-        actions.sendKeys("C:\\Users\\KOMPIUTERIS\\Pictures\\sampleImage.jpg");
-        actions.perform();
-    }
-
-    public static String getSomethingFromElement(By locator, String attName) {
-        return getElement(locator).getAttribute(attName);
     }
 
     public static String getTextFromAttribute(By locator, String attName) {
@@ -78,9 +55,7 @@ public class Common {
         getAlertBox().accept();
     }
 
-    public static void uploadImage(By locator){
-        getElement(locator).click();
+    public static void waitABitPlease() {
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }
-
-
 }

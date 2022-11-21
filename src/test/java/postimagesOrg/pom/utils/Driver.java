@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class Driver {
 
-    private static ThreadLocal<WebDriver> threads =new ThreadLocal<>();
+    private static ThreadLocal<WebDriver> threads = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
         return threads.get();
@@ -19,20 +19,19 @@ public class Driver {
     public static void setDriver() {
         WebDriverManager.chromedriver().setup();
         threads.set(new ChromeDriver(getOptions()));
+        threads.get().manage().deleteAllCookies();
         threads.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
-
     }
 
-    private static ChromeOptions getOptions(){
+    private static ChromeOptions getOptions() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("window-size=2000,3000");
         options.addArguments("--force-device-scale-factor=0.85");
-        //options.addArguments("--incognito");
-        //options.addArguments("--headless");
+        options.addArguments("--incognito");
         return options;
     }
 
-    public static void close(){
+    public static void close() {
         threads.get().quit();
         threads.remove();
     }

@@ -19,8 +19,6 @@ public class TestListener implements ITestListener {
         takeScreenshot("failure");
     }
 
-
-
     private void takeScreenshot(String status) {
 
         try {
@@ -34,13 +32,12 @@ public class TestListener implements ITestListener {
             String directory = "./screenshots/";
             String fileName = status + "_screenshot_" + dateAndTime + "" + UUID.randomUUID() + ".png";
 
-            File screenshotFile = new File(directory+fileName);
+            File screenshotFile = new File(directory + fileName);
 
             FileUtils.copyFile(screenshotRaw, screenshotFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
+
 }

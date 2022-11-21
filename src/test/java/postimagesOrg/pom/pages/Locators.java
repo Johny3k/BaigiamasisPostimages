@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 
 public class Locators {
 
-
     public class Postimages {
-
 
         public class Home {
 
@@ -41,7 +39,7 @@ public class Locators {
 
             public static By inputBoxForUrl = By.xpath("//textarea[@id='links']");
             public static String imageUrl =
-            "https://contentstatic.techgig.com/photo/93000110/what-makes-java-still-popular-among-developers.jpg?28608";
+                    "https://contentstatic.techgig.com/photo/93000110/what-makes-java-still-popular-among-developers.jpg?28608";
             public static By buttonUpload = By.xpath("//*[@class='width100 btn btn-lg']");
         }
 
@@ -50,4 +48,5 @@ public class Locators {
             public static By areWeLoggedOutText = By.xpath("//*[@id='content']/div/h2");
         }
     }
+
 }

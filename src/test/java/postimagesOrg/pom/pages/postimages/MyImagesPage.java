@@ -9,7 +9,6 @@ public class MyImagesPage {
         return Common.getTextFromElement(
                 Locators.Postimages.MyImages.imageLocation
         );
-
     }
 
     public static String checkIfOtherImageExists() {
@@ -25,7 +24,7 @@ public class MyImagesPage {
         Common.clickElement(
                 Locators.Postimages.MyImages.deleteButtonLocation
         );
-        Common.sleep(3000);
+        Common.waitABitPlease();
         Common.clickOkOnAlertBox();
     }
 
@@ -36,7 +35,7 @@ public class MyImagesPage {
         Common.clickElement(
                 Locators.Postimages.MyImages.deleteButtonLocation
         );
-        Common.sleep(3000);
+        Common.waitABitPlease();
         Common.clickOkOnAlertBox();
     }
 
@@ -52,7 +51,8 @@ public class MyImagesPage {
         );
     }
 
-    public static void sleep() {
-        Common.sleep(2000);
+    public static void waitABit() {
+        Common.waitABitPlease();
     }
+
 }
