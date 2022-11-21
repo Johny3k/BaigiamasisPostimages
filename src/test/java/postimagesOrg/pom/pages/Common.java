@@ -3,6 +3,9 @@ package postimagesOrg.pom.pages;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import postimagesOrg.pom.utils.Driver;
 
 import java.time.Duration;
@@ -35,7 +38,7 @@ public class Common {
         getElement(locator).click();
     }
 
-    public static void sendKeysToElement(By locator, String value){
+    public static void sendKeysToElement(By locator, String value) {
         getElement(locator).sendKeys(value);
     }
 
@@ -55,7 +58,18 @@ public class Common {
         getAlertBox().accept();
     }
 
-    public static void waitABitPlease() {
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+    public static void clickElementByAction(By locator) {
+        WebElement element = getElement(locator);
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(element);
+        actions.click();
+        actions.perform();
     }
+
+    public static void waitForElementToBeVisible(By locator) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(6));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
 }

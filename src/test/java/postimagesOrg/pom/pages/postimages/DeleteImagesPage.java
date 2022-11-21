@@ -3,7 +3,7 @@ package postimagesOrg.pom.pages.postimages;
 import postimagesOrg.pom.pages.Common;
 import postimagesOrg.pom.pages.Locators;
 
-public class MyImagesPage {
+public class DeleteImagesPage {
 
     public static String checkIfImageExists() {
         return Common.getTextFromElement(
@@ -24,7 +24,6 @@ public class MyImagesPage {
         Common.clickElement(
                 Locators.Postimages.MyImages.deleteButtonLocation
         );
-        Common.waitABitPlease();
         Common.clickOkOnAlertBox();
     }
 
@@ -35,7 +34,6 @@ public class MyImagesPage {
         Common.clickElement(
                 Locators.Postimages.MyImages.deleteButtonLocation
         );
-        Common.waitABitPlease();
         Common.clickOkOnAlertBox();
     }
 
@@ -51,8 +49,15 @@ public class MyImagesPage {
         );
     }
 
-    public static void waitABit() {
-        Common.waitABitPlease();
+    public static void clickMyImagesHomePage() {
+        Common.clickElementByAction(
+                Locators.Postimages.Home.myImagesButton
+        );
     }
 
+    public static void waitForElementToLoad() {
+        Common.waitForElementToBeVisible(
+                Locators.Postimages.Home.myImagesButton
+        );
+    }
 }

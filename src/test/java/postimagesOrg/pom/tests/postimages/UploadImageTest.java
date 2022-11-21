@@ -2,7 +2,7 @@ package postimagesOrg.pom.tests.postimages;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import postimagesOrg.pom.pages.postimages.MyImagesPage;
+import postimagesOrg.pom.pages.postimages.DeleteImagesPage;
 import postimagesOrg.pom.pages.postimages.UploadImagePage;
 import postimagesOrg.pom.tests.TestBase;
 
@@ -14,11 +14,10 @@ public class UploadImageTest extends TestBase {
         String actualResult;
 
         UploadImagePage.uploadToTestImages();
-        UploadImagePage.waitABit();
         UploadImagePage.clickMyImagesHomePage();
-        MyImagesPage.clickDefault();
+        DeleteImagesPage.clickDefault();
 
-        actualResult = MyImagesPage.checkIfImageExists();
+        actualResult = DeleteImagesPage.checkIfImageExists();
 
         Assert.assertTrue(actualResult.contains(expectedResult), "The image " + expectedResult +
                 " was not uploaded");

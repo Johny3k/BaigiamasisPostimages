@@ -22,8 +22,9 @@ public class TestBase {
         LoginPage.clickLogIn();
     }
 
-//    @AfterMethod
-//    public void tearDown() {
-//        LoginPage.close();
-//    }
+    @AfterMethod
+    public void tearDown() {
+        LoginPage.close();
+    }
+
 }

@@ -10,4 +10,5 @@ public class LogOutPage {
                 Locators.Postimages.LogOut.areWeLoggedOutText
         );
     }
+
 }

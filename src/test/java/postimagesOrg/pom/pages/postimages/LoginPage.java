@@ -26,4 +26,5 @@ public class LoginPage {
                 Locators.Postimages.LogIn.buttonLogIn
         );
     }
+
 }

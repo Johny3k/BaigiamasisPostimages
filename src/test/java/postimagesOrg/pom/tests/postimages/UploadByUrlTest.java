@@ -2,7 +2,7 @@ package postimagesOrg.pom.tests.postimages;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import postimagesOrg.pom.pages.postimages.MyImagesPage;
+import postimagesOrg.pom.pages.postimages.DeleteImagesPage;
 import postimagesOrg.pom.pages.postimages.UploadByUrlPage;
 import postimagesOrg.pom.pages.postimages.UploadImagePage;
 import postimagesOrg.pom.tests.TestBase;
@@ -18,12 +18,13 @@ public class UploadByUrlTest extends TestBase {
         UploadByUrlPage.enterLinkToUpload();
         UploadByUrlPage.clickUpload();
 
-        UploadImagePage.clickMyImagesHomePage();
-        MyImagesPage.clickDefault();
+        UploadByUrlPage.waitForElementToLoad();
+        UploadByUrlPage.clickMyImagesHomePage();
+        DeleteImagesPage.clickDefault();
 
-        actualResult = MyImagesPage.checkIfOtherImageExists();
+        actualResult = DeleteImagesPage.checkIfOtherImageExists();
 
-        Assert.assertTrue(actualResult.contains(expectedResult));
+        Assert.assertTrue(actualResult.contains(expectedResult), "Image has not been uploaded by URL");
     }
 
 }

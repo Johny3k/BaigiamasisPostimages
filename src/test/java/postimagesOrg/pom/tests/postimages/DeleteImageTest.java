@@ -3,7 +3,7 @@ package postimagesOrg.pom.tests.postimages;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import postimagesOrg.pom.pages.postimages.MyImagesPage;
+import postimagesOrg.pom.pages.postimages.DeleteImagesPage;
 import postimagesOrg.pom.pages.postimages.UploadImagePage;
 import postimagesOrg.pom.tests.TestBase;
 
@@ -14,7 +14,7 @@ public class DeleteImageTest extends TestBase {
     public void setUp() {
         super.setUp();
         UploadImagePage.clickMyImagesHomePage();
-        MyImagesPage.clickDefault();
+        DeleteImagesPage.clickDefault();
     }
 
     @Test(priority = 1)
@@ -24,16 +24,14 @@ public class DeleteImageTest extends TestBase {
         String actualResult;
         String actualResult2;
 
-        actualResult = MyImagesPage.checkIfImageExists();
-        actualResult2 = MyImagesPage.checkIfOtherImageExists();
-        boolean doesTheImageExist = actualResult.contains(expectedResult);
-        boolean doesTheOtherImageExist = actualResult2.contains(expectedResult2);
+        actualResult = DeleteImagesPage.checkIfImageExists();
+        actualResult2 = DeleteImagesPage.checkIfOtherImageExists();
 
-        Assert.assertTrue(doesTheImageExist, new String("The image " +
-                expectedResult + " does not exist"));
+        Assert.assertTrue(actualResult.contains(expectedResult), "The image " +
+                expectedResult + " does not exist");
 
-        Assert.assertTrue(doesTheOtherImageExist, new String("The image " +
-                "what-makes-java-still-popular-among-developers.jpg" + expectedResult2 + " does not exist"));
+        Assert.assertTrue(actualResult2.contains(expectedResult2), "The image " +
+                "what-makes-java-still-popular-among-developers.jpg" + expectedResult2 + " does not exist");
     }
 
     @Test(priority = 2)
@@ -41,15 +39,15 @@ public class DeleteImageTest extends TestBase {
         String expectedResult = "empty";
         String actualResult;
 
-        MyImagesPage.deleteSelectedImage();
-        MyImagesPage.deleteOtherSelectedImage();
+        DeleteImagesPage.deleteSelectedImage();
+        DeleteImagesPage.deleteOtherSelectedImage();
 
-        MyImagesPage.waitABit();
-        UploadImagePage.clickMyImagesHomePage();
-        MyImagesPage.waitABit();
-        actualResult = MyImagesPage.checkIfEmpty();
+        DeleteImagesPage.waitForElementToLoad();
+        DeleteImagesPage.clickMyImagesHomePage();
 
-        Assert.assertTrue(actualResult.contains(expectedResult));
+        actualResult = DeleteImagesPage.checkIfEmpty();
+
+        Assert.assertTrue(actualResult.contains(expectedResult),"There are images left undeleted");
     }
 
 }

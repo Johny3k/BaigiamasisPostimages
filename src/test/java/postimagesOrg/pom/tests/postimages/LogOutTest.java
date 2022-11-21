@@ -16,7 +16,7 @@ public class LogOutTest extends TestBase {
         UploadImagePage.clickLogOut();
         actualResult = LogOutPage.checkIfLoggedOut();
 
-        Assert.assertTrue(actualResult.contains(expectedResult));
+        Assert.assertTrue(actualResult.contains(expectedResult), "You have not logged out");
     }
 
 }

@@ -5,11 +5,11 @@ import postimagesOrg.pom.pages.Locators;
 
 public class UploadImagePage {
 
-    public static void openUrl(String url){
+    public static void openUrl(String url) {
         Common.openUrl(url);
     }
 
-    public static void clickLoginInHomePage(){
+    public static void clickLoginInHomePage() {
         Common.clickElement(
                 Locators.Postimages.Home.loginButton
         );
@@ -29,7 +29,8 @@ public class UploadImagePage {
     }
 
     public static void clickMyImagesHomePage() {
-        Common.clickElement(
+
+        Common.clickElementByAction(
                 Locators.Postimages.Home.myImagesButton
         );
     }
@@ -46,7 +47,5 @@ public class UploadImagePage {
         );
     }
 
-    public static void waitABit() {
-        Common.waitABitPlease();
-    }
+
 }

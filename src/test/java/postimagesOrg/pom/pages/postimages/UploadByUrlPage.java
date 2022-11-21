@@ -18,4 +18,17 @@ public class UploadByUrlPage {
                 Locators.Postimages.UploadByUrl.buttonUpload
         );
     }
+
+    public static void clickMyImagesHomePage() {
+        Common.clickElementByAction(
+                Locators.Postimages.Home.myImagesButton
+        );
+    }
+
+    public static void waitForElementToLoad() {
+        Common.waitForElementToBeVisible(
+                Locators.Postimages.Home.myImagesButton
+        );
+    }
+
 }
