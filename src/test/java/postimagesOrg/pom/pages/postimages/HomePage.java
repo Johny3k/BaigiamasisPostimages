@@ -23,8 +23,26 @@ public class HomePage {
     }
 
     public static void uploadToTestImages() {
-        Common.sendKeysToElementByAction(Locators.Postimages.Home.chooseImageButton
+        Common.sendKeysToElement(Locators.Postimages.Home.chooseImageButton,
+                Locators.Postimages.Home.pathInProjectForImage
 
+        );
+    }
+
+    public static void clickMyImagesHomePage() {
+        Common.clickElement(
+                Locators.Postimages.Home.myImagesButton
+        );
+    }
+
+    public static void addAttachment(){
+        Common.uploadImage(Locators.Postimages.Home.chooseImageButton);
+    }
+
+
+    public static void clickUploadByLinkHomePage() {
+        Common.clickElement(
+                Locators.Postimages.Home.uploadByUrlButton
         );
     }
 }
